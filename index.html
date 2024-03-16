@@ -1,0 +1,47 @@
+<!doctype html><html><head>
+  <meta charset=utf8>
+  <title>text-to-speech</title>
+  <style>
+    button.btn_talk{
+      padding:0.618em 1em;
+      font-size:larger;
+    }
+  </style>
+
+  <script>
+    function talk(n_voice){
+      n_voice = n_voice || 0;
+      let voices = window.speechSynthesis.getVoices();
+      let utt    = new SpeechSynthesisUtterance();
+      utt.voice  = voices[n_voice];
+      utt.text   = document.querySelector("textarea").value;
+      window.speechSynthesis.speak(utt);
+    }
+  </script>
+</head><body>
+<h1 style="margin:0">text-to-speech</h1>
+
+<textarea
+  style="
+    display:block;
+    width:99%;
+    height:300px;
+  "
+>Hello World!</textarea>
+
+<div style="display:flex;align-items:center">
+  <button class=btn_talk onclick="talk(0)">voice 0</button>
+  <button class=btn_talk onclick="talk(1)">voice 1</button>
+  <button class=btn_talk onclick="talk(2)">voice 2</button>
+  <button class=btn_talk onclick="talk(3)">voice 3</button>
+  <button class=btn_talk onclick="talk(4)">voice 4</button>
+  <button class=btn_talk onclick="talk(5)">voice 5</button>
+  <button class=btn_talk onclick="talk(6)">voice 6</button>
+  <button class=btn_talk onclick="talk(7)">voice 7</button>
+  <button class=btn_talk onclick="talk(8)">voice 8</button>
+  <button class=btn_talk onclick="talk(9)">voice 9</button>
+</div>
+<button
+  onclick="window.speechSynthesis.cancel()"
+  class=btn_talk
+>STOP</button>
