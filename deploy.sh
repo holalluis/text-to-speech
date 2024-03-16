@@ -5,7 +5,7 @@ git add *
 git commit -m update
 git push
 
-#desplega la web al servidor
+#desplega al servidor
 # -h  human readable format
 # -P  mostra progrés
 # -vv incrementa verbositat
